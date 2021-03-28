@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>xzsc</display-name>
+  
+  <!-- 比如：前端浏览器 发送了一个请求：  http://localhost:8080/Shopping/hello     -->
+  <!-- servlet标签：定位后台的servlet类 -->
+  <servlet>
+    <!-- name的值是 可以自定义的，但是要简明知意 -->
+  	<servlet-name>HelloServlet</servlet-name>
+  	<!-- class是：servlet的文件所在的路径：包名.类名 -->
+  	<servlet-class>test.HelloServlet</servlet-class>
+  </servlet>
+  <!-- mapping标签：解析url路径的请求，然后通过name找到 对应的servlet标签 -->
+  <servlet-mapping>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<!-- url路径的匹配 -->
+  	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 管理系统后台登录操作 -->
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>admin.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<!-- url路径：相对路径： 相对于 项目本身来说 。   http://localhost:8080/Shopping  
+  		 请求路径：/admin/page/login
+  	 -->
+  	<url-pattern>/admin/page/adminLogin</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 显示所有商品订单 -->
+  <servlet>
+  	<servlet-name>OrderListAllServlet</servlet-name>
+  	<servlet-class>admin.OrderListAllServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>OrderListAllServlet</servlet-name>
+  	<url-pattern>/admin/page/orderListAllServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 显示所有商品订单 -->
+  <servlet>
+  	<servlet-name>OrderListServlet</servlet-name>
+  	<servlet-class>admin.OrderListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>OrderListServlet</servlet-name>
+  	<url-pattern>/admin/page/orderListAllServlet1</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 显示所有商品 -->
+  <servlet>
+  	<servlet-name>AllBookServlet1</servlet-name>
+  	<servlet-class>admin.AllBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AllBookServlet1</servlet-name>
+  	<url-pattern>/admin/page/product-list</url-pattern>
+  </servlet-mapping>
+  <!-- 显示商品详情 -->
+  <servlet>
+  	<servlet-name>DetailBook</servlet-name>
+  	<servlet-class>admin.DetailBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DetailBook</servlet-name>
+  	<url-pattern>/admin/page/product-detail</url-pattern>
+  </servlet-mapping>
+  <!-- 编辑商品详情 -->
+  <servlet>
+  	<servlet-name>EditBook</servlet-name>
+  	<servlet-class>admin.EditBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>EditBook</servlet-name>
+  	<url-pattern>/admin/page/product-edit</url-pattern>
+  </servlet-mapping>
+  <!-- 订单，查看对应商品详情 -->
+  <servlet>
+  	<servlet-name>OrderDetilBook</servlet-name>
+  	<servlet-class>admin.OrderDetailBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>OrderDetilBook</servlet-name>
+  	<url-pattern>/admin/page/order-detail</url-pattern>
+  </servlet-mapping>
+  <!-- 订单，处理对应商品的状态 -->
+  <servlet>
+  	<servlet-name>OrderProcessBook</servlet-name>
+  	<servlet-class>admin.OrderProcessBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>OrderProcessBook</servlet-name>
+  	<url-pattern>/admin/page/order-process</url-pattern>
+  </servlet-mapping>
+  <!-- 订单，修改对应商品的状态 -->
+  <servlet>
+  	<servlet-name>OrderStatusUpdate</servlet-name>
+  	<servlet-class>admin.OrderStatusUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>OrderStatusUpdate</servlet-name>
+  	<url-pattern>/admin/page/orderstatus-update</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 订单，打印 -->
+  <servlet>
+  	<servlet-name>PrintServlet</servlet-name>
+  	<servlet-class>admin.PrintServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>PrintServlet</servlet-name>
+  	<url-pattern>/admin/page/printServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 商品，上架 -->
+  <servlet>
+  	<servlet-name>ProductAddServlet</servlet-name>
+  	<servlet-class>admin.ProductAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ProductAddServlet</servlet-name>
+  	<url-pattern>/admin/page/product-addservlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- ctrl+shift+/
+  	  消费者系统： 用户的注册操作
+   -->
+   <servlet>
+  	<servlet-name>UserRegistServlet</servlet-name>
+  	<servlet-class>user.RegistServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserRegistServlet</servlet-name>
+  	<url-pattern>/user/page/userRegist</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：用户的登录操作 -->
+  <servlet>
+  	<servlet-name>UserLoginServlet</servlet-name>
+  	<servlet-class>user.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserLoginServlet</servlet-name>
+  	<url-pattern>/user/page/userLogin</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：用户的退出操作 -->
+  <servlet>
+  	<servlet-name>UserLoginOutServlet</servlet-name>
+  	<servlet-class>user.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserLoginOutServlet</servlet-name>
+  	<url-pattern>/user/page/userLogout</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：修改密码操作 -->
+  <servlet>
+  	<servlet-name>UserChangePwd</servlet-name>
+  	<servlet-class>user.UserChangePwdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserChangePwd</servlet-name>
+  	<url-pattern>/user/page/userChangePwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>UserUpdatePwd</servlet-name>
+  	<servlet-class>user.UserUpdatePwdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserUpdatePwd</servlet-name>
+  	<url-pattern>/user/page/userUpdatePwd</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：商城主界面查询全部数据 -->
+  <servlet>
+  	<servlet-name>AllBookServlet</servlet-name>
+  	<servlet-class>user.AllBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AllBookServlet</servlet-name>
+  	<url-pattern>/user/page/AllBookServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：商品详情页面 -->
+  <servlet>
+  	<servlet-name>DetailBookServlet</servlet-name>
+  	<servlet-class>user.DetailBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DetailBookServlet</servlet-name>
+  	<url-pattern>/user/page/DetailBookServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：注册页面 ajax校验   校验注册用户名是否已经存在 -->
+  <servlet>
+  	<servlet-name>CheckUnameServlet</servlet-name>
+  	<servlet-class>user.CheckUnameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CheckUnameServlet</servlet-name>
+  	<url-pattern>/user/page/CheckUnameServlet</url-pattern>
+  </servlet-mapping>
+  
+   <!-- 消费者系统：注册页面 ajax校验   校验注册邮箱是否已经存在 -->
+  <servlet>
+  	<servlet-name>CheckEmailServlet</servlet-name>
+  	<servlet-class>user.CheckEmailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CheckEmailServlet</servlet-name>
+  	<url-pattern>/user/page/CheckEmailServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：注册页面 ajax校验   校验注册手机号是否已经存在 -->
+  <servlet>
+  	<servlet-name>CheckPhoneServlet</servlet-name>
+  	<servlet-class>user.CheckPhoneServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CheckPhoneServlet</servlet-name>
+  	<url-pattern>/user/page/CheckPhoneServlet</url-pattern>
+  </servlet-mapping>
+  
+   <!-- 消费者系统：商品详情页面 添加购物车 -->
+  <servlet>
+  	<servlet-name>AddToCartServlet</servlet-name>
+  	<servlet-class>user.AddToCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddToCartServlet</servlet-name>
+  	<url-pattern>/user/page/AddToCartServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：把当前用户收藏商品全部展示出来 -->
+  <servlet>
+  	<servlet-name>AllCollectServlet</servlet-name>
+  	<servlet-class>user.AllCollectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AllCollectServlet</servlet-name>
+  	<url-pattern>/user/page/AllCollectServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：收藏夹按钮 添加收藏 -->
+  <servlet>
+  	<servlet-name>CollectServlet</servlet-name>
+  	<servlet-class>user.CollectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CollectServlet</servlet-name>
+  	<url-pattern>/user/page/CollectServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：购物车页面 -->
+  <servlet>
+  	<servlet-name>CartServlet</servlet-name>
+  	<servlet-class>user.CartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CartServlet</servlet-name>
+  	<url-pattern>/user/page/CartServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：购物车页面删除操作 -->
+  <servlet>
+  	<servlet-name>DeleteCartItemServlet</servlet-name>
+  	<servlet-class>user.DeleteCartItemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeleteCartItemServlet</servlet-name>
+  	<url-pattern>/user/page/DeleteCartItemServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：购物车ajax修改数量 -->
+  <servlet>
+  	<servlet-name>ChangeItemNumServlet</servlet-name>
+  	<servlet-class>user.ChangeItemNumServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ChangeItemNumServlet</servlet-name>
+  	<url-pattern>/user/page/ChangeItemNumServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：购物车提交订单功能 -->
+  <servlet>
+  	<servlet-name>CartToOrderServlet</servlet-name>
+  	<servlet-class>user.CartToOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CartToOrderServlet</servlet-name>
+  	<url-pattern>/user/page/CartToOrderServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：修改地址功能 -->
+  <servlet>
+  	<servlet-name>AddressAddServlet</servlet-name>
+  	<servlet-class>user.AddressAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddressAddServlet</servlet-name>
+  	<url-pattern>/user/page/AddressAddServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：模糊搜索功能 -->
+  <servlet>
+  	<servlet-name>SearchServlet</servlet-name>
+  	<servlet-class>user.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>SearchServlet</servlet-name>
+  	<url-pattern>/user/page/SearchServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 消费者系统：完善订单，添加地址 -->
+  <servlet>
+  	<servlet-name>OrderplacedServlet</servlet-name>
+  	<servlet-class>user.OrderplacedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>OrderplacedServlet</servlet-name>
+  	<url-pattern>/user/page/orderplacedServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
